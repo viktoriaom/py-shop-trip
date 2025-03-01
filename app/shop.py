@@ -26,11 +26,14 @@ class Shop:
         print("You have bought:")
         total_cost = 0
         for product in customer.product_cart:
-            price_per_products = self.count_price(
-                product, customer.product_cart[product])
-            total_cost += price_per_products
-            print(f"{customer.product_cart[product]} "
-                  f"{product}s for {price_per_products} dollars")
+            try:
+                price_per_products = self.count_price(
+                    product, customer.product_cart[product])
+                total_cost += price_per_products
+                print(f"{customer.product_cart[product]} "
+                      f"{product}s for {price_per_products} dollars")
+            except KeyError:
+                print(f"Unfortunately, there is no {product} in {self.name}")
         print(f"Total cost is {total_cost} dollars")
         print("See you again!\n")
 

@@ -61,8 +61,8 @@ class Customer:
 
     def ride_home(self, price_per_trip: float) -> None:
         print(f"{self.name} rides home")
-        left_money = round(self.money - price_per_trip, 2)
-        print(f"{self.name} now has {left_money} dollars\n")
+        self.money = round(self.money - price_per_trip, 2)
+        print(f"{self.name} now has {self.money} dollars\n")
 
     def no_trip(self) -> None:
         print(f"{self.name} doesn't have enough money "
